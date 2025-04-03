@@ -1,0 +1,27 @@
+.fetch-users-container {
+    overflow-x: auto;
+}
+
+.fetch-users-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.fetch-users-table th, .fetch-users-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.fetch-users-table th {
+    background-color: #007bff;
+    color: white;
+}
+
+.fetch-users-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.fetch-users-table tr:hover {
+    background-color: #ddd;
+}
