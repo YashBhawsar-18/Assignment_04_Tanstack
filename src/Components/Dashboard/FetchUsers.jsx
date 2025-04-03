@@ -26,7 +26,7 @@ const FetchUsers = () => {
               <th>Name</th>
               <th>Last Name</th>
               <th>Delete</th>
-              <th>Update</th>
+              <th>Updatee</th>
             </tr>
           </thead>
           <tbody>
