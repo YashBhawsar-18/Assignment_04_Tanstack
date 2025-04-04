@@ -1,8 +1,13 @@
 import React, { useState } from 'react'
 import { updateUser } from './crudapi';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { useNavigate, useParams } from 'react-router-dom';
+import '../css/Update.css'
 
-const Update = ({id}) => {
+const Update = () => {
+    const { id } = useParams();
+    const navigate = useNavigate()
+
     const [name, setFName] = useState("");
     const [lastname, setLName] = useState("");
     const queryClient = useQueryClient();
@@ -11,6 +16,7 @@ const Update = ({id}) => {
         onSuccess: () => {
             console.log("User Updated")
             queryClient.invalidateQueries(["user"]);
+            navigate('/dashboard')
 
         }
     })
@@ -21,28 +27,29 @@ const Update = ({id}) => {
     const handleLName = (e) => {
         setLName(e.target.value);
     }
-    
-    const handleSubmit = (e) =>{
+
+    const handleSubmit = (e) => {
         e.preventDefault();
-        mutationUpdate.mutate({id,name,lastname});
+        console.log(" hanlde submit id", id)
+        mutationUpdate.mutate({ id, name, lastname });
 
     }
 
 
-  return (
-    <>
-        <div>
-            <form action="" onSubmit={handleSubmit}>
-                <br />
-                <input onChange={handleFName} type="text" placeholder='fname' />
-                <br />
-                <input onChange={handleLName} type="text" placeholder='lname' />
-                <br />
-                <button>update</button>
-            </form>
-        </div>
-    </>
-  )
+    return (
+        <>
+            <div className="update-container">
+                <form onSubmit={handleSubmit}>
+                    <br />
+                    <input onChange={handleFName} type="text" placeholder="fname" />
+                    <br />
+                    <input onChange={handleLName} type="text" placeholder="lname" />
+                    <br />
+                    <button>Save</button>
+                </form>
+            </div>
+        </>
+    )
 }
 
 export default Update

@@ -4,8 +4,10 @@ import { fetchUsers } from './crudapi'
 import DeleteUser from './DeleteUser'
 import Update from './Update'
 import '../css/FetchUsers.css'
-
+import { useNavigate } from 'react-router-dom'
 const FetchUsers = () => {
+  const navigate =useNavigate()
+ 
 
 
   const { data } = useQuery({
@@ -36,7 +38,9 @@ const FetchUsers = () => {
                 <td>{user.name}</td>
                 <td>{user.lastname}</td>
                 <td><DeleteUser id={user.id} /></td>
-                <td><Update id={user.id} /></td>
+                <td><button onClick={()=>{
+                navigate(`/dashboard/update/${user.id}`)
+  }} >update</button></td>
               </tr>
             ))}
           </tbody>
