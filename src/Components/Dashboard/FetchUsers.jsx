@@ -5,6 +5,8 @@ import DeleteUser from './DeleteUser'
 import Update from './Update'
 import '../css/FetchUsers.css'
 import { useNavigate } from 'react-router-dom'
+
+
 const FetchUsers = () => {
   const navigate =useNavigate()
  
@@ -28,7 +30,7 @@ const FetchUsers = () => {
               <th>Name</th>
               <th>Last Name</th>
               <th>Delete</th>
-              <th>Updatee</th>
+              <th>Update</th>
             </tr>
           </thead>
           <tbody>
@@ -39,8 +41,7 @@ const FetchUsers = () => {
                 <td>{user.lastname}</td>
                 <td><DeleteUser id={user.id} /></td>
                 <td><button onClick={()=>{
-                navigate(`/dashboard/update/${user.id}`)
-  }} >update</button></td>
+                navigate(`/dashboard/update/${user.id}`)}} >update</button></td>
               </tr>
             ))}
           </tbody>

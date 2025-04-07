@@ -14,7 +14,6 @@ const loginUser = async(username, password) => {
         console.log("Error",e);
     }
     
-
 }
 
 export default loginUser;
